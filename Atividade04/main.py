@@ -1,4 +1,4 @@
-import tkinter as tk
+import tkinter
 from datetime import datetime, timedelta
 
 class Stopwatch:
@@ -7,14 +7,14 @@ class Stopwatch:
         self.master.title("Cronômetro") 
         self.tempo_corrido = timedelta(hours=0, minutes=0, seconds=0)
         self.rodando = False
-        self.display = tk.StringVar()
+        self.display = tkinter.StringVar()
         self.display.set("00:00:00")
-        self.label = tk.Label(master, textvariable=self.display, font=("Arial", 48))
+        self.label = tkinter.Label(master, textvariable=self.display, font=("Arial", 48))
         self.label.pack()
-        self.iniciar = tk.Button(master, text="Iniciar", command=self.iniciar_parar)
-        self.iniciar.pack(side=tk.LEFT, padx=10)
-        self.reiniciar = tk.Button(master, text="Resetar", command=self.resetar)
-        self.reiniciar.pack(side=tk.RIGHT, padx=10)
+        self.iniciar = tkinter.Button(master, text="Iniciar", command=self.iniciar_parar)
+        self.iniciar.pack(side=tkinter.LEFT, padx=10)
+        self.reiniciar = tkinter.Button(master, text="Resetar", command=self.resetar)
+        self.reiniciar.pack(side=tkinter.RIGHT, padx=10)
         self.atualizar()
 
     def iniciar_parar(self):
@@ -38,6 +38,6 @@ class Stopwatch:
         self.display.set(str(self.tempo_corrido).split(".")[0])
         self.master.after(100, self.atualizar)
 
-root = tk.Tk()
+root = tkinter.Tk()
 app = Stopwatch(root)
 root.mainloop()
